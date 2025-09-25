@@ -17,15 +17,3 @@ Route::get('/berita', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 });
-
-Route::get('/kontak', function () {
-    return "Halaman Profile";
-});
-
-Route::get('/kontak', function () {
-    return "Halaman Berita";
-});
-
-Route::get('/kontak', function () {
-    return "Halaman Kontak";
-});
