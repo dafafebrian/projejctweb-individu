@@ -7,7 +7,11 @@ Route::get('/', function () {
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile'; [
+        "nama" => "Livita Hadiningrat",
+        "nohp" => "0876543234567",
+        "foto" => "jokowi.jpg",
+    ]);
 });
 
 Route::get('/berita', function () {
