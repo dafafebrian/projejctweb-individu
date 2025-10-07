@@ -19,6 +19,7 @@ Route::get('/profile', function () {
         "title" => "Profile",
         "nama" => "Dafa Febrianto ",
         "nohp" => "08213697881",
+        "NIM" => "13242420033",
         "foto" => "img/jokowi.jpg"
     ]);
 });
