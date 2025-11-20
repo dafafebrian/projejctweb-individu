@@ -45,8 +45,8 @@ class MahasiswaController extends Controller
     {
         $data = Mahasiswa::find($id);
 
-        $data->updated($request->all());
+        $data->update($request->all());
 
-        return redirect()->route('mahasiswa')->with('succes', 'Data Berhasil Dedit!');
+        return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Diedit!');
     }
 }
