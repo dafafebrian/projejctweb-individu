@@ -49,3 +49,8 @@ Route::get('/mahasiswa', [MahasiswaController::class, 'index'] )->name('mahasisw
 Route::get('/tambahmahasiswa', [MahasiswaController::class, 'tambahmahasiswa'] )->name('tambahmahasiswa');
 
 Route::post('/insertdata', [MahasiswaController::class, 'insertdata'] )->name('insertdata');
+
+Route::get('/tampildata/id',[MahasiswaController::class, 'tampildata'])->name('tampildata');
+
+Route::post('/editdata/{id}', [MahasiswaController::class, 'editdata'] )->name('editdata');
+
