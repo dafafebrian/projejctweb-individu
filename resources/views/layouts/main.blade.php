@@ -33,6 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{$title === 'Berita' ? 'active' : '' }} " href="/berita">Berita</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{$title === 'mahasiswa' ? 'active' : '' }} " href="/mahasiswa">Data Mahasiswa</a>
+                    </li>
                 </ul>
             </div>
         </div>
