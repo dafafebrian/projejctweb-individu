@@ -1,6 +1,6 @@
 @extends ('layouts/main')
 @section('content')
-    <h1>edit data mahasiswa</h1>
+    <h1>Edit Data Mahasiswa</h1>
     <div class="card">
         <div class="card-body bg-ocean">
     <form action="/editdata/{{ $data->id }}" method="POST" enctype="multipart/form-data">

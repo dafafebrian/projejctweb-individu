@@ -1,6 +1,6 @@
 @extends ('layouts/main')
 @section('content')
-    <h1>tambah data mahasiswa</h1>
+    <h1>Tambah Data Mahasiswa</h1>
     <div class="card">
         <div class="card-body bg-ocean">
     <form action="/insertdata" method="POST" enctype="multipart/form-data">
