@@ -6,8 +6,8 @@ use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome', [
-        "title" => "welcome"
+    return view('home', [
+        "title" => "home"
     ]);
 });
 
@@ -43,8 +43,6 @@ Route::get('/berita',[BeritaController::class, 'index']);
 Route::get('/berita/{slug}', [BeritaController::class, 'tampildata']);
 
 Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
-
-Route::get('/mahasiswa', [MahasiswaController::class, 'index'] )->name('mahasiswa');
 
 Route::get('/tambahmahasiswa', [MahasiswaController::class, 'tambahmahasiswa'] )->name('tambahmahasiswa');
 
