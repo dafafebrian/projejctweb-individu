@@ -4,6 +4,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\MahasiswaController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('home', [
@@ -29,7 +30,7 @@ Route::get('/profile', function () {
 Route::get('/about', function () {
     return view('about', [
         "title" => "About"
-    ]); 
+    ]);
 });
 
 Route::get('/contact', function () {
@@ -42,15 +43,18 @@ Route::get('/berita',[BeritaController::class, 'index']);
 
 Route::get('/berita/{slug}', [BeritaController::class, 'tampildata']);
 
-Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
 
-Route::get('/tambahmahasiswa', [MahasiswaController::class, 'tambahmahasiswa'] )->name('tambahmahasiswa');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/insertdata', [MahasiswaController::class, 'insertdata'] )->name('insertdata');
 
-Route::get('/tampildata/{id}', [MahasiswaController::class, 'tampildata'])->name('tampildata');
-
-Route::post('/editdata/{id}', [MahasiswaController::class, 'editdata'])->name('editdata');
-
-Route::get('/deletedata/{id}', [MahasiswaController::class, 'deletedata'])->name('deletedata');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
+    Route::get('/tambahmahasiswa', [MahasiswaController::class, 'tambahmahasiswa'] )->name('tambahmahasiswa');
+    Route::post('/insertdata', [MahasiswaController::class, 'insertdata'] )->name('insertdata');
+    Route::get('/tampildata/{id}', [MahasiswaController::class, 'tampildata'])->name('tampildata');
+    Route::post('/editdata/{id}', [MahasiswaController::class, 'editdata'])->name('editdata');
+    Route::get('/deletedata/{id}', [MahasiswaController::class, 'deletedata'])->name('deletedata');
+});
 

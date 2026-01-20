@@ -6,11 +6,17 @@
 
 <div class="row mt-4">
 
-    <a href="/tambahmahasiswa">
-        <button type="button" class="btn btn-success mb-2">
-            Tambah Data
-        </button><br>
-    </a>
+    <div class="d-flex justify-content-between mb-2">
+        <a href="/tambahmahasiswa">
+            <button type="button" class="btn btn-success">
+                Tambah Data
+            </button>
+        </a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
 
     @if ($message = Session::get('success'))
         <script>
