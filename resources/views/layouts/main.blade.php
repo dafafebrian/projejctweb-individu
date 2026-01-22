@@ -16,7 +16,12 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       
+        <div class="container">
+            <a class="navbar-brand" href="/home">Proyekku</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link {{$title === 'Home' ? 'active' : '' }} " href="/home">Home</a>
@@ -36,6 +41,24 @@
                     <li class="nav-item">
                         <a class="nav-link {{$title === 'mahasiswa' ? 'active' : '' }} " href="/mahasiswa">Data Mahasiswa</a>
                     </li>
+                    @guest
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link {{ $title === 'Login' ? 'active' : '' }}">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                    @endguest
+
+                    @auth
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-link nav-link">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </form>
+                    </li>
+                    @endauth
                 </ul>
             </div>
         </div>

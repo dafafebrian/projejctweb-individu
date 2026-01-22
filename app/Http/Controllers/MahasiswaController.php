@@ -11,8 +11,9 @@ class MahasiswaController extends Controller
     {
         $data = Mahasiswa::all();
 
-        return view('mahasiswa', compact('data'), [
+        return view('mahasiswa', [
             "title" => "Data Mahasiswa",
+            "data" => $data,
         ]);
     }
 
